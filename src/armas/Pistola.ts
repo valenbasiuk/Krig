@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // Pistola - Arma de corto alcance con poca municion y dano bajo
 // ============================================================
 // Hereda de Arma e implementa disparar() con su propio dano base.
@@ -15,17 +15,20 @@ export class Pistola extends Arma {
 
   // Constructor: inicializa con valores por defecto o los que se pasen
   constructor() {
-    // TODO: llamar a super() con nombre "Pistola 9mm" y municion inicial (ej: 15)
-    // TODO: asignar danoPorDisparo (ej: 50)
+    super("Pistola 9mm", 15);
+    this.danoPorDisparo = 50;
   }
 
   // Implementacion del disparo de la pistola:
   // - Si tiene municion: descuenta 1 y retorna el dano
   // - Si no tiene municion: retorna 0
   disparar(): number {
-    // TODO: verificar tieneMunicion()
-    // TODO: si hay municion: municion-- y return danoPorDisparo
-    // TODO: si no hay: return 0
-    throw new Error("Not implemented");
+    if (this.tieneMunicion()) {
+      this.municion--;
+      console.log(`Disparo con Pistola! municion restante: ${this.municion}`);
+      return this.danoPorDisparo;
+    }
+    console.log("No quedan balas.");
+    return 0;
   }
 }
