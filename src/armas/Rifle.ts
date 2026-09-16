@@ -13,12 +13,17 @@ export class Rifle extends Arma {
   private danoPorDisparo: number;
 
   constructor() {
-    // TODO: super() con nombre "Rifle de asalto" y municion (ej: 30)
-    // TODO: asignar danoPorDisparo (ej: 100)
+    super("Rifle de asalto", 30);
+    this.danoPorDisparo = 100;
   }
 
   disparar(): number {
-    // TODO: misma logica que Pistola pero con los valores del Rifle
-    throw new Error("Not implemented");
+    if (this.municion > 0) {
+      this.municion--;
+      console.log(`Disparo con Rifle! municion restante: ${this.municion}`);
+      return this.danoPorDisparo;
+    }
+    console.log("No quedan balas.");
+    return 0;
   }
 }
