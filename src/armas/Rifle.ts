@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // Rifle - Arma de largo alcance con mas municion y dano medio
 // ============================================================
 // Similar a la Pistola pero con mas municion y mayor dano.
@@ -18,7 +18,7 @@ export class Rifle extends Arma {
   }
 
   disparar(): number {
-    if (this.municion > 0) {
+    if (this.tieneMunicion()) {
       this.municion--;
       console.log(`Disparo con Rifle! municion restante: ${this.municion}`);
       return this.danoPorDisparo;
