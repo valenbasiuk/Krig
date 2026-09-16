@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // Lanzacohetes - Arma pesada, poca municion pero dano muy alto
 // ============================================================
 // El arma mas poderosa del juego. Tiene muy pocos disparos
@@ -13,12 +13,17 @@ export class Lanzacohetes extends Arma {
   private danoPorDisparo: number;
 
   constructor() {
-    // TODO: super() con nombre "Lanzacohetes RPG" y municion (ej: 5)
-    // TODO: asignar danoPorDisparo (ej: 300)
+    super("Lanzacohetes RPG", 5);
+    this.danoPorDisparo = 300;
   }
 
   disparar(): number {
-    // TODO: misma logica que las otras armas
-    throw new Error("Not implemented");
+    if (this.tieneMunicion()) {
+      this.municion--;
+      console.log(`Disparo con Lanzacohetes! municion restante: ${this.municion}`);
+      return this.danoPorDisparo;
+    }
+    console.log("No quedan balas.");
+    return 0;
   }
 }
