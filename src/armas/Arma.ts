@@ -20,17 +20,17 @@ export abstract class Arma {
 
   // Constructor base: recibe el nombre y la municion inicial
   constructor(nombre: string, municion: number) {
-    // TODO: asignar nombre y municion
+    this.nombre = nombre;
+    this.municion = municion;
   }
 
   // Retorna true si todavia hay municion disponible, false si se acabo
   tieneMunicion(): boolean {
-    // TODO: retornar municion > 0
-    throw new Error("Not implemented");
+    return this.municion > 0;
   }
 
-  // Intenta disparar: descuenta una municion y retorna el dano causado.
-  // Si NO hay municion, retorna 0 (el arma no hace nada).
-  // Es abstracto porque cada arma define su propio dano base.
+  // Intenta disparar: descuenta una municion y retorna el da;o causado.
+  // en caso de que no haya municion, retorna 0 (el arma no hace nada)
+  // es abstracto porque cada arma define su propio da;o base.
   abstract disparar(): number;
 }
