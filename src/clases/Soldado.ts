@@ -2,11 +2,19 @@ import { Arma } from "../armas/Arma";
 
 export class Soldado {
     private arma?: Arma;
-    private vida: number;
+    private vida: number = 0;
 
     constructor(vida: number = 100, arma?: Arma) {
-        this.vida = vida;
+        this.setVida(vida);
         this.arma = arma;
+    }
+
+    setVida(vida: number): void {
+        this.vida = vida;
+    }
+
+    getVida(): number {
+        return this.vida;
     }
 
     disparar(objetivo?: Soldado): number {
